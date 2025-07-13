@@ -1,0 +1,8 @@
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+responses==0.24.1
+httpx==0.25.2
+fastapi[all]==0.104.1
+requests==2.31.0
+coverage==7.3.2

@@ -1,0 +1,483 @@
+2025-07-06 10:34:04,459 - __main__ - INFO - User Management API server starting up...
+2025-07-06 10:34:16,807 - __main__ - INFO - Health check requested
+2025-07-06 10:38:24,221 - __main__ - INFO - Health check requested
+2025-07-06 10:38:24,242 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 10:38:24,262 - __main__ - INFO - Successfully created user with ID: 123456782
+2025-07-06 10:38:24,268 - __main__ - INFO - Fetching user with ID: 123456782
+2025-07-06 10:38:24,269 - __main__ - INFO - Successfully retrieved user with ID: 123456782
+2025-07-06 10:38:24,272 - __main__ - INFO - Fetching all user IDs
+2025-07-06 10:38:24,273 - __main__ - INFO - Retrieved 1 user IDs
+2025-07-06 10:38:24,276 - __main__ - INFO - Fetching user with ID: 123456782
+2025-07-06 10:38:24,277 - __main__ - INFO - Successfully retrieved user with ID: 123456782
+2025-07-06 10:38:51,801 - __main__ - INFO - Health check requested
+2025-07-06 10:38:51,807 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 10:38:51,809 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 10:38:51,811 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 10:38:51,811 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 10:38:55,936 - __main__ - INFO - Fetching user with ID: 999999999
+2025-07-06 10:38:55,938 - __main__ - WARNING - User with ID 999999999 not found
+2025-07-06 10:38:55,939 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 10:38:55,940 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 10:38:57,996 - __main__ - INFO - Fetching user with ID: 999999999
+2025-07-06 10:38:57,998 - __main__ - WARNING - User with ID 999999999 not found
+2025-07-06 10:38:58,000 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 10:38:58,000 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 10:41:07,915 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 10:41:44,320 - __main__ - INFO - User Management API server starting up...
+2025-07-06 10:41:48,468 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:00:28,091 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:00:41,507 - __main__ - INFO - Health check requested
+2025-07-06 11:01:08,731 - __main__ - INFO - Health check requested
+2025-07-06 11:01:08,768 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:01:08,774 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:01:08,775 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:01:08,775 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 11:01:59,244 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:02:01,586 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 11:02:01,615 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:02:18,006 - __main__ - INFO - Health check requested
+2025-07-06 11:02:18,025 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:02:18,033 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:02:18,035 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:02:18,037 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 11:02:18,038 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "main.py", line 183, in create_user
+    raise HTTPException(status_code=409, detail="User with this ID already exists")
+fastapi.exceptions.HTTPException
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 91, in __call__
+    await response(scope, receive, sender)
+TypeError: 'dict' object is not callable
+
+2025-07-06 11:02:31,297 - __main__ - INFO - Health check requested
+2025-07-06 11:04:21,162 - __main__ - INFO - Health check requested
+2025-07-06 11:04:33,369 - __main__ - INFO - Health check requested
+2025-07-06 11:07:02,519 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:07:05,724 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 11:07:05,756 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:07:28,582 - __main__ - INFO - Health check requested
+2025-07-06 11:07:28,604 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:07:28,610 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:07:28,612 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:07:28,613 - __main__ - ERROR - Unexpected error: 'dict' object is not callable
+2025-07-06 11:07:28,614 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "main.py", line 189, in create_user
+    raise HTTPException(status_code=409, detail="User with this ID already exists")
+fastapi.exceptions.HTTPException
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 91, in __call__
+    await response(scope, receive, sender)
+TypeError: 'dict' object is not callable
+
+2025-07-06 11:08:47,347 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:08:49,835 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 11:08:49,863 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:08:59,887 - __main__ - INFO - Health check requested
+2025-07-06 11:08:59,905 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:08:59,910 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:08:59,911 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:10:27,035 - __main__ - INFO - Health check requested
+2025-07-06 11:10:27,044 - __main__ - INFO - Attempting to create user with ID: 123454274
+2025-07-06 11:10:27,061 - __main__ - INFO - Successfully created user with ID: 123454274
+2025-07-06 11:10:27,067 - __main__ - INFO - Fetching user with ID: 123454274
+2025-07-06 11:10:27,068 - __main__ - INFO - Successfully retrieved user with ID: 123454274
+2025-07-06 11:10:27,074 - __main__ - INFO - Fetching all user IDs
+2025-07-06 11:10:27,074 - __main__ - INFO - Retrieved 2 user IDs
+2025-07-06 11:10:27,079 - __main__ - INFO - Fetching user with ID: 123454274
+2025-07-06 11:10:27,080 - __main__ - INFO - Successfully retrieved user with ID: 123454274
+2025-07-06 11:10:27,084 - __main__ - INFO - Attempting to create user with ID: 123454274
+2025-07-06 11:10:27,085 - __main__ - WARNING - User with ID 123454274 already exists
+2025-07-06 11:10:27,086 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:17:35,304 - __main__ - INFO - Health check requested
+2025-07-06 11:17:35,314 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 2, got 0')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+2025-07-06 11:17:35,329 - __main__ - ERROR - Unexpected error: Object of type ValueError is not JSON serializable
+2025-07-06 11:17:35,329 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 272, in app
+    raise RequestValidationError(_normalize_errors(errors), body=body)
+fastapi.exceptions.RequestValidationError: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 2, got 0')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 88, in __call__
+    response = await handler(request, exc)
+  File "main.py", line 175, in validation_exception_handler
+    return JSONResponse(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 196, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 55, in __init__
+    self.body = self.render(content)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 199, in render
+    return json.dumps(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 234, in dumps
+    return cls(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ValueError is not JSON serializable
+
+2025-07-06 11:17:37,391 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 8, got 5', 'input': '315240785', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 8, got 5')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}, {'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567', 'ctx': {'error': ValueError('Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+2025-07-06 11:17:37,392 - __main__ - ERROR - Unexpected error: Object of type ValueError is not JSON serializable
+2025-07-06 11:17:37,393 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 272, in app
+    raise RequestValidationError(_normalize_errors(errors), body=body)
+fastapi.exceptions.RequestValidationError: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 8, got 5', 'input': '315240785', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 8, got 5')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}, {'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567', 'ctx': {'error': ValueError('Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 88, in __call__
+    response = await handler(request, exc)
+  File "main.py", line 175, in validation_exception_handler
+    return JSONResponse(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 196, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 55, in __init__
+    self.body = self.render(content)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 199, in render
+    return json.dumps(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 234, in dumps
+    return cls(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ValueError is not JSON serializable
+
+2025-07-06 11:17:39,447 - __main__ - INFO - Fetching user with ID: 203458179
+2025-07-06 11:17:39,450 - __main__ - WARNING - User with ID 203458179 not found
+2025-07-06 11:17:39,451 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 11:17:39,459 - __main__ - INFO - Fetching user with ID: 203458179
+2025-07-06 11:17:39,460 - __main__ - WARNING - User with ID 203458179 not found
+2025-07-06 11:17:39,462 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 11:17:39,469 - __main__ - INFO - Fetching user with ID: invalid123
+2025-07-06 11:17:39,469 - __main__ - WARNING - Invalid ID format: invalid123
+2025-07-06 11:17:39,470 - __main__ - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-06 11:17:41,520 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:17:41,523 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:17:41,523 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:17:41,532 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 3, got 7', 'input': '039065077', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 3, got 7')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}, {'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone', 'ctx': {'error': ValueError('Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+2025-07-06 11:17:41,533 - __main__ - ERROR - Unexpected error: Object of type ValueError is not JSON serializable
+2025-07-06 11:17:41,533 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 272, in app
+    raise RequestValidationError(_normalize_errors(errors), body=body)
+fastapi.exceptions.RequestValidationError: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 3, got 7', 'input': '039065077', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 3, got 7')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}, {'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone', 'ctx': {'error': ValueError('Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 88, in __call__
+    response = await handler(request, exc)
+  File "main.py", line 175, in validation_exception_handler
+    return JSONResponse(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 196, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 55, in __init__
+    self.body = self.render(content)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 199, in render
+    return json.dumps(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 234, in dumps
+    return cls(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ValueError is not JSON serializable
+
+2025-07-06 11:17:43,592 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 2, got 0')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+2025-07-06 11:17:43,594 - __main__ - ERROR - Unexpected error: Object of type ValueError is not JSON serializable
+2025-07-06 11:17:43,594 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 20, in __call__
+    raise e
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\middleware\asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\routing.py", line 66, in app
+    response = await func(request)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\fastapi\routing.py", line 272, in app
+    raise RequestValidationError(_normalize_errors(errors), body=body)
+fastapi.exceptions.RequestValidationError: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780', 'ctx': {'error': ValueError('Invalid Israeli ID - check digit should be 2, got 0')}, 'url': 'https://errors.pydantic.dev/2.5/v/value_error'}]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\middleware\exceptions.py", line 88, in __call__
+    response = await handler(request, exc)
+  File "main.py", line 175, in validation_exception_handler
+    return JSONResponse(
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 196, in __init__
+    super().__init__(content, status_code, headers, media_type, background)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 55, in __init__
+    self.body = self.render(content)
+  File "C:\Users\User\aqua\.venv\lib\site-packages\starlette\responses.py", line 199, in render
+    return json.dumps(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 234, in dumps
+    return cls(
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\User\AppData\Local\Programs\Python\Python38\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ValueError is not JSON serializable
+
+2025-07-06 11:17:45,650 - __main__ - INFO - Health check requested
+2025-07-06 11:18:28,528 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:43:25,273 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 11:43:25,300 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:43:34,451 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 11:43:52,390 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 11:43:52,417 - __main__ - INFO - User Management API server starting up...
+2025-07-06 11:43:59,274 - __main__ - INFO - Health check requested
+2025-07-06 11:43:59,292 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-06 11:43:59,297 - __main__ - WARNING - User with ID 123456782 already exists
+2025-07-06 11:43:59,298 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:44:01,377 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567'}]
+2025-07-06 11:44:03,430 - __main__ - INFO - Fetching user with ID: 123456790
+2025-07-06 11:44:03,432 - __main__ - WARNING - User with ID 123456790 not found
+2025-07-06 11:44:03,434 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 11:44:03,440 - __main__ - INFO - Fetching user with ID: 123456790
+2025-07-06 11:44:03,441 - __main__ - WARNING - User with ID 123456790 not found
+2025-07-06 11:44:03,443 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 11:44:03,449 - __main__ - INFO - Fetching user with ID: invalid123
+2025-07-06 11:44:03,449 - __main__ - WARNING - Invalid ID format: invalid123
+2025-07-06 11:44:03,449 - __main__ - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-06 11:44:05,487 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-06 11:44:05,497 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-06 11:44:07,571 - __main__ - INFO - Attempting to create user with ID: 203458179
+2025-07-06 11:44:07,586 - __main__ - INFO - Successfully created user with ID: 203458179
+2025-07-06 11:44:07,590 - __main__ - INFO - Attempting to create user with ID: 315240788
+2025-07-06 11:44:07,594 - __main__ - INFO - Successfully created user with ID: 315240788
+2025-07-06 11:44:07,598 - __main__ - INFO - Attempting to create user with ID: 039065073
+2025-07-06 11:44:07,602 - __main__ - INFO - Successfully created user with ID: 039065073
+2025-07-06 11:44:07,606 - __main__ - INFO - Fetching all user IDs
+2025-07-06 11:44:07,607 - __main__ - INFO - Retrieved 5 user IDs
+2025-07-06 11:44:07,611 - __main__ - INFO - Attempting to create user with ID: 203458179
+2025-07-06 11:44:07,612 - __main__ - WARNING - User with ID 203458179 already exists
+2025-07-06 11:44:07,612 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 11:44:09,681 - __main__ - INFO - Health check requested
+2025-07-06 11:44:42,339 - __main__ - INFO - User Management API server shutting down...
+2025-07-06 12:56:51,241 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:56:51,275 - __main__ - INFO - User Management API server starting up...
+2025-07-06 12:57:00,315 - __main__ - INFO - Health check requested
+2025-07-06 12:57:15,213 - __main__ - INFO - Health check requested
+2025-07-06 12:57:17,479 - __main__ - INFO - Health check requested
+2025-07-06 12:57:19,528 - __main__ - INFO - Health check requested
+2025-07-06 12:57:21,591 - __main__ - INFO - Health check requested
+2025-07-06 12:57:23,639 - __main__ - INFO - Health check requested
+2025-07-06 12:57:25,713 - __main__ - INFO - Health check requested
+2025-07-06 12:57:27,768 - __main__ - INFO - Health check requested
+2025-07-06 12:57:29,838 - __main__ - INFO - Health check requested
+2025-07-06 12:57:31,898 - __main__ - INFO - Health check requested
+2025-07-06 12:59:21,830 - __main__ - INFO - Health check requested
+2025-07-06 12:59:24,120 - __main__ - INFO - Health check requested
+2025-07-06 12:59:26,177 - __main__ - INFO - Health check requested
+2025-07-06 12:59:28,246 - __main__ - INFO - Attempting to create user with ID: 999988660
+2025-07-06 12:59:28,259 - __main__ - INFO - Successfully created user with ID: 999988660
+2025-07-06 12:59:30,309 - __main__ - INFO - Attempting to create user with ID: 999988686
+2025-07-06 12:59:30,320 - __main__ - INFO - Successfully created user with ID: 999988686
+2025-07-06 12:59:32,377 - __main__ - INFO - Fetching user with ID: 999988686
+2025-07-06 12:59:32,377 - __main__ - INFO - Successfully retrieved user with ID: 999988686
+2025-07-06 12:59:34,447 - __main__ - INFO - Health check requested
+2025-07-06 12:59:36,497 - __main__ - INFO - Fetching all user IDs
+2025-07-06 12:59:36,503 - __main__ - INFO - Retrieved 7 user IDs
+2025-07-06 12:59:38,563 - __main__ - INFO - Fetching user with ID: 000000000
+2025-07-06 12:59:38,568 - __main__ - WARNING - User with ID 000000000 not found
+2025-07-06 12:59:38,568 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 12:59:40,622 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': 'invalid123'}]
+2025-07-06 12:59:42,681 - __main__ - INFO - Health check requested
+2025-07-06 12:59:44,742 - __main__ - INFO - Attempting to create user with ID: 888877826
+2025-07-06 12:59:44,756 - __main__ - INFO - Successfully created user with ID: 888877826
+2025-07-06 12:59:46,817 - __main__ - INFO - Health check requested
+2025-07-06 12:59:48,870 - __main__ - INFO - Fetching user with ID: 000000000
+2025-07-06 12:59:48,870 - __main__ - WARNING - User with ID 000000000 not found
+2025-07-06 12:59:48,870 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 12:59:50,954 - __main__ - INFO - Health check requested
+2025-07-06 12:59:53,006 - __main__ - INFO - Attempting to create user with ID: 888877909
+2025-07-06 12:59:53,016 - __main__ - INFO - Successfully created user with ID: 888877909
+2025-07-06 12:59:53,019 - __main__ - INFO - Fetching user with ID: 888877909
+2025-07-06 12:59:53,019 - __main__ - INFO - Successfully retrieved user with ID: 888877909
+2025-07-06 12:59:55,074 - __main__ - INFO - Health check requested
+2025-07-06 12:59:57,137 - __main__ - INFO - Health check requested
+2025-07-06 12:59:59,163 - __main__ - INFO - Health check requested
+2025-07-06 13:00:01,217 - __main__ - INFO - Fetching all user IDs
+2025-07-06 13:00:01,221 - __main__ - INFO - Retrieved 9 user IDs
+2025-07-06 13:00:03,279 - __main__ - INFO - Health check requested
+2025-07-06 13:00:05,355 - __main__ - INFO - Attempting to create user with ID: 888877032
+2025-07-06 13:00:05,365 - __main__ - INFO - Successfully created user with ID: 888877032
+2025-07-06 13:00:05,368 - __main__ - INFO - Fetching user with ID: 888877032
+2025-07-06 13:00:05,368 - __main__ - INFO - Successfully retrieved user with ID: 888877032
+2025-07-06 13:00:05,376 - __main__ - INFO - Fetching user with ID: 000000000
+2025-07-06 13:00:05,376 - __main__ - WARNING - User with ID 000000000 not found
+2025-07-06 13:00:05,376 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-13 08:47:49,198 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 08:47:49,379 - __main__ - INFO - User Management API server starting up...
+2025-07-13 08:50:04,382 - __main__ - INFO - Health check requested
+2025-07-13 08:50:04,419 - __main__ - INFO - Attempting to create user with ID: 123458044
+2025-07-13 08:50:04,447 - __main__ - INFO - Successfully created user with ID: 123458044
+2025-07-13 08:50:04,447 - __main__ - INFO - Fetching user with ID: 123458044
+2025-07-13 08:50:04,459 - __main__ - INFO - Successfully retrieved user with ID: 123458044
+2025-07-13 08:50:04,466 - __main__ - INFO - Fetching all user IDs
+2025-07-13 08:50:04,468 - __main__ - INFO - Retrieved 11 user IDs
+2025-07-13 08:50:04,475 - __main__ - INFO - Fetching user with ID: 123458044
+2025-07-13 08:50:04,476 - __main__ - INFO - Successfully retrieved user with ID: 123458044
+2025-07-13 08:50:04,481 - __main__ - INFO - Attempting to create user with ID: 123458044
+2025-07-13 08:50:04,481 - __main__ - WARNING - User with ID 123458044 already exists
+2025-07-13 08:50:04,481 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 08:50:37,853 - __main__ - INFO - Health check requested
+2025-07-13 08:50:37,865 - __main__ - INFO - Attempting to create user with ID: 123458374
+2025-07-13 08:50:37,873 - __main__ - INFO - Successfully created user with ID: 123458374
+2025-07-13 08:50:37,888 - __main__ - INFO - Fetching user with ID: 123458374
+2025-07-13 08:50:37,890 - __main__ - INFO - Successfully retrieved user with ID: 123458374
+2025-07-13 08:50:37,901 - __main__ - INFO - Fetching all user IDs
+2025-07-13 08:50:37,903 - __main__ - INFO - Retrieved 12 user IDs
+2025-07-13 08:50:37,909 - __main__ - INFO - Fetching user with ID: 123458374
+2025-07-13 08:50:37,910 - __main__ - INFO - Successfully retrieved user with ID: 123458374
+2025-07-13 08:50:37,920 - __main__ - INFO - Attempting to create user with ID: 123458374
+2025-07-13 08:50:37,922 - __main__ - WARNING - User with ID 123458374 already exists
+2025-07-13 08:50:37,924 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 08:51:02,982 - __main__ - INFO - User Management API server shutting down...
+2025-07-13 08:51:10,670 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 08:51:10,711 - __main__ - INFO - User Management API server starting up...
+2025-07-13 08:51:17,266 - __main__ - INFO - Health check requested
+2025-07-13 08:51:17,291 - __main__ - INFO - Attempting to create user with ID: 123458770
+2025-07-13 08:51:17,301 - __main__ - INFO - Successfully created user with ID: 123458770
+2025-07-13 08:51:17,313 - __main__ - INFO - Fetching user with ID: 123458770
+2025-07-13 08:51:17,313 - __main__ - INFO - Successfully retrieved user with ID: 123458770
+2025-07-13 08:51:17,320 - __main__ - INFO - Fetching all user IDs
+2025-07-13 08:51:17,321 - __main__ - INFO - Retrieved 1 user IDs
+2025-07-13 08:51:17,327 - __main__ - INFO - Fetching user with ID: 123458770
+2025-07-13 08:51:17,328 - __main__ - INFO - Successfully retrieved user with ID: 123458770
+2025-07-13 08:51:17,336 - __main__ - INFO - Attempting to create user with ID: 123458770
+2025-07-13 08:51:17,338 - __main__ - WARNING - User with ID 123458770 already exists
+2025-07-13 08:51:17,338 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 08:54:21,408 - __main__ - INFO - Health check requested
+2025-07-13 08:54:21,419 - __main__ - INFO - Attempting to create user with ID: 123456782
+2025-07-13 08:54:21,435 - __main__ - INFO - Successfully created user with ID: 123456782
+2025-07-13 08:54:21,438 - __main__ - INFO - Fetching user with ID: 123456782
+2025-07-13 08:54:21,438 - __main__ - INFO - Successfully retrieved user with ID: 123456782
+2025-07-13 08:54:21,447 - __main__ - INFO - Fetching all user IDs
+2025-07-13 08:54:21,453 - __main__ - INFO - Retrieved 2 user IDs
+2025-07-13 08:54:23,546 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567'}]
+2025-07-13 08:54:25,602 - __main__ - INFO - Fetching user with ID: 123456790
+2025-07-13 08:54:25,602 - __main__ - WARNING - User with ID 123456790 not found
+2025-07-13 08:54:25,602 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-13 08:54:25,612 - __main__ - INFO - Fetching user with ID: 123456790
+2025-07-13 08:54:25,612 - __main__ - WARNING - User with ID 123456790 not found
+2025-07-13 08:54:25,612 - __main__ - ERROR - HTTP Exception: 404 - User not found
+2025-07-13 08:54:25,621 - __main__ - INFO - Fetching user with ID: invalid123
+2025-07-13 08:54:25,621 - __main__ - WARNING - Invalid ID format: invalid123
+2025-07-13 08:54:25,628 - __main__ - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-13 08:54:27,698 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-13 08:54:27,714 - __main__ - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-13 08:54:29,757 - __main__ - INFO - Attempting to create user with ID: 203458179
+2025-07-13 08:54:29,773 - __main__ - INFO - Successfully created user with ID: 203458179
+2025-07-13 08:54:29,773 - __main__ - INFO - Attempting to create user with ID: 315240788
+2025-07-13 08:54:29,800 - __main__ - INFO - Successfully created user with ID: 315240788
+2025-07-13 08:54:29,820 - __main__ - INFO - Attempting to create user with ID: 039065073
+2025-07-13 08:54:29,836 - __main__ - INFO - Successfully created user with ID: 039065073
+2025-07-13 08:54:29,852 - __main__ - INFO - Fetching all user IDs
+2025-07-13 08:54:29,852 - __main__ - INFO - Retrieved 5 user IDs
+2025-07-13 08:54:29,863 - __main__ - INFO - Attempting to create user with ID: 203458179
+2025-07-13 08:54:29,867 - __main__ - WARNING - User with ID 203458179 already exists
+2025-07-13 08:54:29,867 - __main__ - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 08:54:31,937 - __main__ - INFO - Health check requested
+2025-07-13 09:13:32,373 - __main__ - INFO - User Management API server shutting down...

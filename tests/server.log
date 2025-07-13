@@ -1,0 +1,527 @@
+2025-07-06 12:02:45,592 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,594 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-06 12:02:45,598 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,601 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,608 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-06 12:02:45,620 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,625 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,635 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,642 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,645 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-06 12:02:45,650 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,652 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-06 12:02:45,657 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,665 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'name'), 'msg': 'Field required', 'input': {'id': '123456782', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}}]
+2025-07-06 12:02:45,666 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,669 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567'}}]
+2025-07-06 12:02:45,670 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,673 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'name'), 'msg': 'Value error, Name cannot be empty', 'input': ''}]
+2025-07-06 12:02:45,675 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,675 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,684 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,692 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,694 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,700 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,705 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,708 - main - INFO - Fetching user with ID: invalid123
+2025-07-06 12:02:45,708 - main - WARNING - Invalid ID format: invalid123
+2025-07-06 12:02:45,710 - main - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-06 12:02:45,714 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,714 - main - INFO - Fetching user with ID: 123456790
+2025-07-06 12:02:45,714 - main - WARNING - User with ID 123456790 not found
+2025-07-06 12:02:45,714 - main - ERROR - HTTP Exception: 404 - User not found
+2025-07-06 12:02:45,727 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,729 - main - INFO - Health check requested
+2025-07-06 12:02:45,735 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,738 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,743 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,744 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,749 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-06 12:02:45,750 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,752 - main - INFO - Attempting to create user with ID: 203458179
+2025-07-06 12:02:45,757 - main - INFO - Successfully created user with ID: 203458179
+2025-07-06 12:02:45,759 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,762 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 9, got 8', 'input': '203458178'}]
+2025-07-06 12:02:45,762 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,766 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678'}]
+2025-07-06 12:02:45,767 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,769 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '1234567890'}]
+2025-07-06 12:02:45,771 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,773 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678a'}]
+2025-07-06 12:02:45,781 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,783 - main - INFO - Fetching all user IDs
+2025-07-06 12:02:45,784 - main - INFO - Retrieved 0 user IDs
+2025-07-06 12:02:45,790 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,794 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,798 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,804 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,809 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,814 - main - INFO - Successfully created user with ID: 123456782
+2025-07-06 12:02:45,816 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,818 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,819 - main - WARNING - User with ID 123456782 already exists
+2025-07-06 12:02:45,820 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 12:02:45,821 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,824 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567'}]
+2025-07-06 12:02:45,826 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,828 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-06 12:02:45,829 - main - WARNING - User with ID 123456782 already exists
+2025-07-06 12:02:45,829 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-06 12:02:45,830 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,834 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '972-50-1234567'}]
+2025-07-06 12:02:45,836 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,839 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-06 12:02:45,842 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,844 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '123456789'}]
+2025-07-06 12:02:45,846 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,849 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+'}]
+2025-07-06 12:02:45,850 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:02:45,853 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': ''}]
+2025-07-06 12:08:20,126 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-06 12:08:20,129 - main - INFO - Health check requested
+2025-07-13 09:32:52,804 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,810 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-13 09:32:52,843 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,848 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,852 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-13 09:32:52,873 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,878 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:52,891 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:52,898 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,900 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-13 09:32:52,906 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,910 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-13 09:32:52,914 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,914 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'name'), 'msg': 'Field required', 'input': {'id': '123456782', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}}]
+2025-07-13 09:32:52,924 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,925 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567'}}]
+2025-07-13 09:32:52,925 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,925 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'name'), 'msg': 'Value error, Name cannot be empty', 'input': ''}]
+2025-07-13 09:32:52,940 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,942 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:52,945 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:52,956 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,957 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:52,963 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:52,966 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,976 - main - INFO - Fetching user with ID: invalid123
+2025-07-13 09:32:52,976 - main - WARNING - Invalid ID format: invalid123
+2025-07-13 09:32:52,976 - main - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-13 09:32:52,976 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,976 - main - INFO - Fetching user with ID: 123456790
+2025-07-13 09:32:52,976 - main - WARNING - User with ID 123456790 not found
+2025-07-13 09:32:52,986 - main - ERROR - HTTP Exception: 404 - User not found
+2025-07-13 09:32:52,989 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,989 - main - INFO - Health check requested
+2025-07-13 09:32:52,996 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:52,996 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:53,009 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:53,009 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,016 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-13 09:32:53,020 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,023 - main - INFO - Attempting to create user with ID: 203458179
+2025-07-13 09:32:53,023 - main - INFO - Successfully created user with ID: 203458179
+2025-07-13 09:32:53,029 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,031 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 9, got 8', 'input': '203458178'}]
+2025-07-13 09:32:53,035 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,039 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678'}]
+2025-07-13 09:32:53,041 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,043 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '1234567890'}]
+2025-07-13 09:32:53,043 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,043 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678a'}]
+2025-07-13 09:32:53,056 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,056 - main - INFO - Fetching all user IDs
+2025-07-13 09:32:53,062 - main - INFO - Retrieved 0 user IDs
+2025-07-13 09:32:53,070 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,073 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:53,073 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:53,083 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,090 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:53,093 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:32:53,099 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,104 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:53,106 - main - WARNING - User with ID 123456782 already exists
+2025-07-13 09:32:53,106 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 09:32:53,106 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,110 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567'}]
+2025-07-13 09:32:53,113 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,149 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:32:53,149 - main - WARNING - User with ID 123456782 already exists
+2025-07-13 09:32:53,149 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 09:32:53,155 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,157 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '972-50-1234567'}]
+2025-07-13 09:32:53,162 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,166 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-13 09:32:53,166 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,173 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '123456789'}]
+2025-07-13 09:32:53,176 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,178 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+'}]
+2025-07-13 09:32:53,178 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:32:53,185 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': ''}]
+2025-07-13 09:32:53,189 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,189 - client - INFO - Performing health check
+2025-07-13 09:32:53,189 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,194 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:32:53,194 - client - DEBUG - Response: 200 - {"status": "healthy", "version": "1.0.0"}...
+2025-07-13 09:32:53,194 - client - INFO - Health check successful
+2025-07-13 09:32:53,194 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:32:53,197 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:32:53,197 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:32:53,197 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:32:53,197 - client - DEBUG - Response: 201 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,197 - client - INFO - Successfully created user: 123456782
+2025-07-13 09:32:53,197 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:32:53,197 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:32:53,197 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:32:53,197 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,197 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:32:53,197 - client - INFO - Fetching all user IDs
+2025-07-13 09:32:53,197 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:32:53,197 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:32:53,197 - client - DEBUG - Response: 200 - ["123456782"]...
+2025-07-13 09:32:53,197 - client - INFO - Retrieved 1 user IDs
+2025-07-13 09:32:53,197 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:32:53,197 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:32:53,203 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:32:53,203 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,203 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:32:53,203 - client - INFO - API client session closed
+2025-07-13 09:32:53,203 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,204 - client - INFO - Performing health check
+2025-07-13 09:32:53,204 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,204 - client - ERROR - Request failed: Connection failed
+2025-07-13 09:32:53,204 - client - INFO - API client session closed
+2025-07-13 09:32:53,204 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,204 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,204 - client - INFO - API client session closed
+2025-07-13 09:32:53,204 - client - INFO - API client session closed
+2025-07-13 09:32:53,204 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,204 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:32:53,204 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:32:53,207 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:32:53,207 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:32:53,207 - client - DEBUG - Response: 409 - {"error": "User with this ID already exists", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,207 - client - ERROR - API error: User with this ID already exists
+2025-07-13 09:32:53,207 - client - INFO - API client session closed
+2025-07-13 09:32:53,207 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,207 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:32:53,207 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:32:53,210 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:32:53,210 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:32:53,210 - client - DEBUG - Response: 201 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,210 - client - INFO - Successfully created user: 123456782
+2025-07-13 09:32:53,210 - client - INFO - API client session closed
+2025-07-13 09:32:53,210 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,210 - client - INFO - Creating user with ID: invalid
+2025-07-13 09:32:53,210 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:32:53,210 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:32:53,210 - client - DEBUG - Request body: {'id': 'invalid', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:32:53,210 - client - DEBUG - Response: 422 - {"error": "Validation failed", "details": [{"type": "value_error", "loc": ["body", "id"], "msg": "Invalid Israeli ID"}], "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,210 - client - ERROR - API error: Validation failed
+2025-07-13 09:32:53,210 - client - INFO - API client session closed
+2025-07-13 09:32:53,210 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,210 - client - INFO - Fetching user with ID: invalid
+2025-07-13 09:32:53,210 - client - DEBUG - Making GET request to http://test-server:8000/users/invalid
+2025-07-13 09:32:53,210 - client - DEBUG - Request: GET http://test-server:8000/users/invalid
+2025-07-13 09:32:53,210 - client - DEBUG - Response: 400 - {"error": "ID must be exactly 9 digits", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,210 - client - ERROR - API error: ID must be exactly 9 digits
+2025-07-13 09:32:53,210 - client - INFO - API client session closed
+2025-07-13 09:32:53,210 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,210 - client - INFO - Fetching user with ID: 123456790
+2025-07-13 09:32:53,210 - client - DEBUG - Making GET request to http://test-server:8000/users/123456790
+2025-07-13 09:32:53,216 - client - DEBUG - Request: GET http://test-server:8000/users/123456790
+2025-07-13 09:32:53,216 - client - DEBUG - Response: 404 - {"error": "User not found", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,216 - client - ERROR - API error: User not found
+2025-07-13 09:32:53,216 - client - INFO - API client session closed
+2025-07-13 09:32:53,216 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,216 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:32:53,216 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:32:53,218 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:32:53,218 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:32:53,218 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:32:53,218 - client - INFO - API client session closed
+2025-07-13 09:32:53,218 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,218 - client - INFO - Performing health check
+2025-07-13 09:32:53,218 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,220 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:32:53,220 - client - DEBUG - Response: 503 - {"error": "Service unavailable"}...
+2025-07-13 09:32:53,220 - client - ERROR - API error: Service unavailable
+2025-07-13 09:32:53,220 - client - INFO - API client session closed
+2025-07-13 09:32:53,220 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,220 - client - INFO - Performing health check
+2025-07-13 09:32:53,220 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,220 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:32:53,220 - client - DEBUG - Response: 200 - {"status": "healthy", "timestamp": "2025-07-06T08:00:00Z", "version": "1.0.0"}...
+2025-07-13 09:32:53,220 - client - INFO - Health check successful
+2025-07-13 09:32:53,220 - client - INFO - API client session closed
+2025-07-13 09:32:53,223 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,223 - client - INFO - Performing health check
+2025-07-13 09:32:53,223 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,223 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:32:53,223 - client - DEBUG - Response: 200 - invalid json...
+2025-07-13 09:32:53,223 - client - INFO - Health check successful
+2025-07-13 09:32:53,223 - client - INFO - API client session closed
+2025-07-13 09:32:53,223 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,223 - client - INFO - Fetching all user IDs
+2025-07-13 09:32:53,223 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:32:53,226 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:32:53,226 - client - DEBUG - Response: 200 - []...
+2025-07-13 09:32:53,226 - client - INFO - Retrieved 0 user IDs
+2025-07-13 09:32:53,226 - client - INFO - API client session closed
+2025-07-13 09:32:53,226 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,226 - client - INFO - Fetching all user IDs
+2025-07-13 09:32:53,226 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:32:53,228 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:32:53,228 - client - DEBUG - Response: 200 - ["123456782", "203458179", "315240788"]...
+2025-07-13 09:32:53,228 - client - INFO - Retrieved 3 user IDs
+2025-07-13 09:32:53,228 - client - INFO - API client session closed
+2025-07-13 09:32:53,228 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,229 - client - INFO - Performing health check
+2025-07-13 09:32:53,229 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:32:53,229 - client - ERROR - Request failed: Request timed out
+2025-07-13 09:32:53,229 - client - INFO - API client session closed
+2025-07-13 09:32:53,229 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,229 - client - INFO - Fetching user with ID: 123456790
+2025-07-13 09:32:53,229 - client - DEBUG - Making GET request to http://test-server:8000/users/123456790
+2025-07-13 09:32:53,229 - client - DEBUG - Request: GET http://test-server:8000/users/123456790
+2025-07-13 09:32:53,229 - client - DEBUG - Response: 404 - {"error": "User not found"}...
+2025-07-13 09:32:53,229 - client - ERROR - API error: User not found
+2025-07-13 09:32:53,229 - client - INFO - API client session closed
+2025-07-13 09:32:53,229 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,229 - client - INFO - Fetching user with ID: invalid
+2025-07-13 09:32:53,229 - client - DEBUG - Making GET request to http://test-server:8000/users/invalid
+2025-07-13 09:32:53,229 - client - DEBUG - Request: GET http://test-server:8000/users/invalid
+2025-07-13 09:32:53,229 - client - DEBUG - Response: 400 - {"error": "ID must be exactly 9 digits"}...
+2025-07-13 09:32:53,229 - client - ERROR - API error: ID must be exactly 9 digits
+2025-07-13 09:32:53,229 - client - WARNING - Invalid ID format: invalid
+2025-07-13 09:32:53,229 - client - INFO - API client session closed
+2025-07-13 09:32:53,229 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:32:53,229 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:32:53,229 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:32:53,237 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:32:53,237 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel"}...
+2025-07-13 09:32:53,237 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:32:53,237 - client - INFO - API client session closed
+2025-07-13 09:35:51,884 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,887 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-13 09:35:51,890 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,896 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,902 - main - ERROR - Validation error: [{'type': 'json_invalid', 'loc': ('body', 0), 'msg': 'JSON decode error', 'input': {}}]
+2025-07-13 09:35:51,926 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,926 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:51,939 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:51,948 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,950 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-13 09:35:51,957 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,957 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-13 09:35:51,968 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,973 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'name'), 'msg': 'Field required', 'input': {'id': '123456782', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}}]
+2025-07-13 09:35:51,973 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,976 - main - ERROR - Validation error: [{'type': 'missing', 'loc': ('body', 'address'), 'msg': 'Field required', 'input': {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567'}}]
+2025-07-13 09:35:51,977 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,981 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'name'), 'msg': 'Value error, Name cannot be empty', 'input': ''}]
+2025-07-13 09:35:51,988 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:51,989 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:51,997 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:52,003 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,006 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,016 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:52,019 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,025 - main - INFO - Fetching user with ID: invalid123
+2025-07-13 09:35:52,025 - main - WARNING - Invalid ID format: invalid123
+2025-07-13 09:35:52,025 - main - ERROR - HTTP Exception: 400 - ID must be exactly 9 digits
+2025-07-13 09:35:52,029 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,029 - main - INFO - Fetching user with ID: 123456790
+2025-07-13 09:35:52,029 - main - WARNING - User with ID 123456790 not found
+2025-07-13 09:35:52,029 - main - ERROR - HTTP Exception: 404 - User not found
+2025-07-13 09:35:52,045 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,045 - main - INFO - Health check requested
+2025-07-13 09:35:52,054 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,060 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,075 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:52,075 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,083 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 2, got 0', 'input': '123456780'}]
+2025-07-13 09:35:52,085 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,089 - main - INFO - Attempting to create user with ID: 203458179
+2025-07-13 09:35:52,091 - main - INFO - Successfully created user with ID: 203458179
+2025-07-13 09:35:52,096 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,102 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, Invalid Israeli ID - check digit should be 9, got 8', 'input': '203458178'}]
+2025-07-13 09:35:52,102 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,107 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678'}]
+2025-07-13 09:35:52,113 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,117 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '1234567890'}]
+2025-07-13 09:35:52,117 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,122 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'id'), 'msg': 'Value error, ID must be exactly 9 digits', 'input': '12345678a'}]
+2025-07-13 09:35:52,127 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,127 - main - INFO - Fetching all user IDs
+2025-07-13 09:35:52,136 - main - INFO - Retrieved 0 user IDs
+2025-07-13 09:35:52,139 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,148 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,153 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:52,158 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,163 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,170 - main - INFO - Successfully created user with ID: 123456782
+2025-07-13 09:35:52,173 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,176 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,176 - main - WARNING - User with ID 123456782 already exists
+2025-07-13 09:35:52,176 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 09:35:52,179 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,179 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+1-555-123-4567'}]
+2025-07-13 09:35:52,179 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,213 - main - INFO - Attempting to create user with ID: 123456782
+2025-07-13 09:35:52,216 - main - WARNING - User with ID 123456782 already exists
+2025-07-13 09:35:52,217 - main - ERROR - HTTP Exception: 409 - User with this ID already exists
+2025-07-13 09:35:52,217 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,223 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '972-50-1234567'}]
+2025-07-13 09:35:52,223 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,231 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': 'invalid-phone'}]
+2025-07-13 09:35:52,233 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,239 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '123456789'}]
+2025-07-13 09:35:52,242 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,245 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': '+'}]
+2025-07-13 09:35:52,249 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-07-13 09:35:52,252 - main - ERROR - Validation error: [{'type': 'value_error', 'loc': ('body', 'phone'), 'msg': 'Value error, Phone number must be in international format (e.g., +972501234567 or +972-50-1234567)', 'input': ''}]
+2025-07-13 09:35:52,256 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,256 - client - INFO - Performing health check
+2025-07-13 09:35:52,256 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,264 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:35:52,264 - client - DEBUG - Response: 200 - {"status": "healthy", "version": "1.0.0"}...
+2025-07-13 09:35:52,265 - client - INFO - Health check successful
+2025-07-13 09:35:52,265 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:35:52,265 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:35:52,265 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:35:52,265 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:35:52,265 - client - DEBUG - Response: 201 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,265 - client - INFO - Successfully created user: 123456782
+2025-07-13 09:35:52,265 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:35:52,265 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:35:52,265 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:35:52,265 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,265 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:35:52,265 - client - INFO - Fetching all user IDs
+2025-07-13 09:35:52,265 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:35:52,269 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:35:52,269 - client - DEBUG - Response: 200 - ["123456782"]...
+2025-07-13 09:35:52,269 - client - INFO - Retrieved 1 user IDs
+2025-07-13 09:35:52,269 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:35:52,269 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:35:52,269 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:35:52,269 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,269 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:35:52,269 - client - INFO - API client session closed
+2025-07-13 09:35:52,269 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,273 - client - INFO - Performing health check
+2025-07-13 09:35:52,273 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,273 - client - ERROR - Request failed: Connection failed
+2025-07-13 09:35:52,273 - client - INFO - API client session closed
+2025-07-13 09:35:52,273 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,273 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,273 - client - INFO - API client session closed
+2025-07-13 09:35:52,273 - client - INFO - API client session closed
+2025-07-13 09:35:52,273 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,273 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:35:52,275 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:35:52,275 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:35:52,275 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:35:52,275 - client - DEBUG - Response: 409 - {"error": "User with this ID already exists", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,275 - client - ERROR - API error: User with this ID already exists
+2025-07-13 09:35:52,275 - client - INFO - API client session closed
+2025-07-13 09:35:52,275 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,275 - client - INFO - Creating user with ID: 123456782
+2025-07-13 09:35:52,275 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:35:52,275 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:35:52,275 - client - DEBUG - Request body: {'id': '123456782', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:35:52,275 - client - DEBUG - Response: 201 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,275 - client - INFO - Successfully created user: 123456782
+2025-07-13 09:35:52,275 - client - INFO - API client session closed
+2025-07-13 09:35:52,275 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,275 - client - INFO - Creating user with ID: invalid
+2025-07-13 09:35:52,275 - client - DEBUG - Making POST request to http://test-server:8000/users
+2025-07-13 09:35:52,275 - client - DEBUG - Request: POST http://test-server:8000/users
+2025-07-13 09:35:52,280 - client - DEBUG - Request body: {'id': 'invalid', 'name': 'John Doe', 'phone': '+972-50-1234567', 'address': 'Tel Aviv, Israel'}
+2025-07-13 09:35:52,280 - client - DEBUG - Response: 422 - {"error": "Validation failed", "details": [{"type": "value_error", "loc": ["body", "id"], "msg": "Invalid Israeli ID"}], "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,281 - client - ERROR - API error: Validation failed
+2025-07-13 09:35:52,281 - client - INFO - API client session closed
+2025-07-13 09:35:52,281 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,281 - client - INFO - Fetching user with ID: invalid
+2025-07-13 09:35:52,281 - client - DEBUG - Making GET request to http://test-server:8000/users/invalid
+2025-07-13 09:35:52,281 - client - DEBUG - Request: GET http://test-server:8000/users/invalid
+2025-07-13 09:35:52,283 - client - DEBUG - Response: 400 - {"error": "ID must be exactly 9 digits", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,283 - client - ERROR - API error: ID must be exactly 9 digits
+2025-07-13 09:35:52,283 - client - INFO - API client session closed
+2025-07-13 09:35:52,283 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,283 - client - INFO - Fetching user with ID: 123456790
+2025-07-13 09:35:52,283 - client - DEBUG - Making GET request to http://test-server:8000/users/123456790
+2025-07-13 09:35:52,283 - client - DEBUG - Request: GET http://test-server:8000/users/123456790
+2025-07-13 09:35:52,283 - client - DEBUG - Response: 404 - {"error": "User not found", "timestamp": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,283 - client - ERROR - API error: User not found
+2025-07-13 09:35:52,283 - client - INFO - API client session closed
+2025-07-13 09:35:52,283 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,283 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:35:52,283 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:35:52,283 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:35:52,283 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel", "created_at": "2025-07-06T08:00:00Z"}...
+2025-07-13 09:35:52,283 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:35:52,283 - client - INFO - API client session closed
+2025-07-13 09:35:52,283 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,283 - client - INFO - Performing health check
+2025-07-13 09:35:52,283 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,283 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:35:52,283 - client - DEBUG - Response: 503 - {"error": "Service unavailable"}...
+2025-07-13 09:35:52,283 - client - ERROR - API error: Service unavailable
+2025-07-13 09:35:52,283 - client - INFO - API client session closed
+2025-07-13 09:35:52,283 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,283 - client - INFO - Performing health check
+2025-07-13 09:35:52,283 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,290 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:35:52,290 - client - DEBUG - Response: 200 - {"status": "healthy", "timestamp": "2025-07-06T08:00:00Z", "version": "1.0.0"}...
+2025-07-13 09:35:52,290 - client - INFO - Health check successful
+2025-07-13 09:35:52,290 - client - INFO - API client session closed
+2025-07-13 09:35:52,290 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,290 - client - INFO - Performing health check
+2025-07-13 09:35:52,290 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,290 - client - DEBUG - Request: GET http://test-server:8000/health
+2025-07-13 09:35:52,290 - client - DEBUG - Response: 200 - invalid json...
+2025-07-13 09:35:52,290 - client - INFO - Health check successful
+2025-07-13 09:35:52,290 - client - INFO - API client session closed
+2025-07-13 09:35:52,290 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,290 - client - INFO - Fetching all user IDs
+2025-07-13 09:35:52,290 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:35:52,293 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:35:52,293 - client - DEBUG - Response: 200 - []...
+2025-07-13 09:35:52,293 - client - INFO - Retrieved 0 user IDs
+2025-07-13 09:35:52,293 - client - INFO - API client session closed
+2025-07-13 09:35:52,293 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,293 - client - INFO - Fetching all user IDs
+2025-07-13 09:35:52,293 - client - DEBUG - Making GET request to http://test-server:8000/users
+2025-07-13 09:35:52,293 - client - DEBUG - Request: GET http://test-server:8000/users
+2025-07-13 09:35:52,293 - client - DEBUG - Response: 200 - ["123456782", "203458179", "315240788"]...
+2025-07-13 09:35:52,293 - client - INFO - Retrieved 3 user IDs
+2025-07-13 09:35:52,293 - client - INFO - API client session closed
+2025-07-13 09:35:52,296 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,296 - client - INFO - Performing health check
+2025-07-13 09:35:52,296 - client - DEBUG - Making GET request to http://test-server:8000/health
+2025-07-13 09:35:52,297 - client - ERROR - Request failed: Request timed out
+2025-07-13 09:35:52,297 - client - INFO - API client session closed
+2025-07-13 09:35:52,297 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,297 - client - INFO - Fetching user with ID: 123456790
+2025-07-13 09:35:52,297 - client - DEBUG - Making GET request to http://test-server:8000/users/123456790
+2025-07-13 09:35:52,297 - client - DEBUG - Request: GET http://test-server:8000/users/123456790
+2025-07-13 09:35:52,297 - client - DEBUG - Response: 404 - {"error": "User not found"}...
+2025-07-13 09:35:52,297 - client - ERROR - API error: User not found
+2025-07-13 09:35:52,297 - client - INFO - API client session closed
+2025-07-13 09:35:52,297 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,297 - client - INFO - Fetching user with ID: invalid
+2025-07-13 09:35:52,297 - client - DEBUG - Making GET request to http://test-server:8000/users/invalid
+2025-07-13 09:35:52,297 - client - DEBUG - Request: GET http://test-server:8000/users/invalid
+2025-07-13 09:35:52,302 - client - DEBUG - Response: 400 - {"error": "ID must be exactly 9 digits"}...
+2025-07-13 09:35:52,302 - client - ERROR - API error: ID must be exactly 9 digits
+2025-07-13 09:35:52,302 - client - WARNING - Invalid ID format: invalid
+2025-07-13 09:35:52,302 - client - INFO - API client session closed
+2025-07-13 09:35:52,303 - client - INFO - UserAPIClient initialized with base_url: http://test-server:8000
+2025-07-13 09:35:52,303 - client - INFO - Fetching user with ID: 123456782
+2025-07-13 09:35:52,303 - client - DEBUG - Making GET request to http://test-server:8000/users/123456782
+2025-07-13 09:35:52,303 - client - DEBUG - Request: GET http://test-server:8000/users/123456782
+2025-07-13 09:35:52,304 - client - DEBUG - Response: 200 - {"id": "123456782", "name": "John Doe", "phone": "+972-50-1234567", "address": "Tel Aviv, Israel"}...
+2025-07-13 09:35:52,304 - client - INFO - Successfully retrieved user: 123456782
+2025-07-13 09:35:52,304 - client - INFO - API client session closed
