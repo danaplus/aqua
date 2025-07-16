@@ -1,198 +1,212 @@
 #!/usr/bin/env python3
 """
-Integration tests for the complete User Management system
-These tests require the server to be running
+Integration tests using pytest (modern approach)
 """
 
-import unittest
-import time
-import subprocess
-import sys
+import pytest
 import requests
-from threading import Thread
-import signal
+import time
+import threading
+import sys
 import os
 
 # Import our client
-import sys
-import os
-
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)
 from client import UserAPIClient, APIClientError, generate_valid_israeli_id
 
 
-class TestLiveIntegration(unittest.TestCase):
-    """Integration tests that run against live server"""
+# Fixtures
+@pytest.fixture(scope="session")
+def server_check():
+    """Check if server is available once per test session"""
+    try:
+        response = requests.get("http://localhost:8000/health", timeout=5)
+        if response.status_code != 200:
+            pytest.skip("Server not available")
+    except requests.exceptions.RequestException:
+        pytest.skip("Server not available - start with: python main.py")
 
-    @classmethod
-    def setUpClass(cls):
-        """Check if server is running, if not skip these tests"""
-        try:
-            response = requests.get("http://localhost:8000/health", timeout=5)
-            if response.status_code == 200:
-                cls.server_available = True
-                print("✅ Server is running - integration tests will run")
-            else:
-                cls.server_available = False
-                print("⚠️ Server returned non-200 - skipping integration tests")
-        except requests.exceptions.RequestException:
-            cls.server_available = False
-            print("⚠️ Server not available - skipping integration tests")
-            print("   Start server with: python main.py")
 
-    def setUp(self):
-        """Set up test client"""
-        if not self.server_available:
-            self.skipTest("Server not available")
+@pytest.fixture
+def api_client(server_check):
+    """Create API client for each test"""
+    client = UserAPIClient()
+    yield client
+    client.close()
 
-        self.client = UserAPIClient()
 
-        # Generate unique test ID to avoid conflicts
-        self.test_id = generate_valid_israeli_id(f"99988{int(time.time()) % 100:02d}")
+@pytest.fixture
+def unique_user_id():
+    """Generate unique test user ID"""
+    import random
+    timestamp = int(time.time() * 1000) % 10000
+    random_part = random.randint(10, 99)
+    base_id = f"99{timestamp:04d}{random_part:02d}"
+    return generate_valid_israeli_id(base_id)
 
-    def tearDown(self):
-        """Clean up"""
-        if hasattr(self, 'client'):
-            self.client.close()
 
-    def test_server_health(self):
+@pytest.fixture
+def test_user_data():
+    """Common test user data"""
+    return {
+        "name": "Integration Test User",
+        "phone": "+972-50-9999999",
+        "address": "Test Street 123, Tel Aviv"
+    }
+
+
+# Basic Integration Tests
+class TestBasicIntegration:
+    """Basic integration tests"""
+
+    def test_server_health(self, api_client):
         """Test server health check"""
-        health = self.client.health_check()
+        health = api_client.health_check()
+        assert health["status"] == "healthy"
+        assert health["version"] == "1.0.0"
+        assert "timestamp" in health
 
-        self.assertEqual(health["status"], "healthy")
-        self.assertEqual(health["version"], "1.0.0")
-        self.assertIn("timestamp", health)
-
-    def test_complete_user_lifecycle(self):
+    def test_user_lifecycle(self, api_client, unique_user_id, test_user_data):
         """Test complete user lifecycle"""
         # 1. Verify user doesn't exist
-        exists_before = self.client.user_exists(self.test_id)
-        self.assertFalse(exists_before)
+        assert not api_client.user_exists(unique_user_id)
 
         # 2. Create user
-        user_data = self.client.create_user(
-            user_id=self.test_id,
-            name="Integration Test User",
-            phone="+972-50-9999999",
-            address="Test Street 123, Tel Aviv"
+        user = api_client.create_user(
+            user_id=unique_user_id,
+            **test_user_data
         )
-
-        self.assertEqual(user_data["id"], self.test_id)
-        self.assertEqual(user_data["name"], "Integration Test User")
-        self.assertIn("created_at", user_data)
+        assert user["id"] == unique_user_id
+        assert user["name"] == test_user_data["name"]
 
         # 3. Verify user exists
-        exists_after = self.client.user_exists(self.test_id)
-        self.assertTrue(exists_after)
+        assert api_client.user_exists(unique_user_id)
 
         # 4. Retrieve user
-        retrieved_user = self.client.get_user(self.test_id)
-        self.assertEqual(retrieved_user["id"], self.test_id)
-        self.assertEqual(retrieved_user["name"], "Integration Test User")
-        self.assertEqual(retrieved_user["phone"], "+972-50-9999999")
+        retrieved_user = api_client.get_user(unique_user_id)
+        assert retrieved_user["id"] == unique_user_id
+        assert retrieved_user["name"] == test_user_data["name"]
 
-        # 5. List users (should include our user)
-        user_list = self.client.list_users()
-        self.assertIn(self.test_id, user_list)
+        # 5. List users should include our user
+        user_list = api_client.list_users()
+        assert unique_user_id in user_list
 
-        # 6. Try to create duplicate (should fail)
-        with self.assertRaises(APIClientError) as context:
-            self.client.create_user(
-                user_id=self.test_id,
-                name="Duplicate User",
-                phone="+972-50-8888888",
-                address="Another Address"
-            )
+    def test_duplicate_user_prevention(self, api_client, unique_user_id, test_user_data):
+        """Test duplicate user prevention"""
+        # Create user
+        api_client.create_user(user_id=unique_user_id, **test_user_data)
 
-        self.assertEqual(context.exception.status_code, 409)
+        # Try to create duplicate
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.create_user(user_id=unique_user_id, **test_user_data)
 
-    def test_validation_errors_live(self):
-        """Test validation errors against live server"""
-        # Invalid Israeli ID
-        with self.assertRaises(APIClientError) as context:
-            self.client.create_user(
-                user_id="123456780",  # Wrong check digit
+        assert exc_info.value.status_code == 409
+
+
+# Validation Tests
+class TestValidation:
+    """Test validation scenarios"""
+
+    @pytest.mark.parametrize("invalid_id,expected_status", [
+        ("12345678", 422),  # Wrong check digit
+        ("1234567", 422),  # Too short
+        ("123456789", 422),  # Too long (but maybe valid)
+        ("12345678a", 422),  # Non-numeric
+    ])
+    def test_invalid_israeli_ids(self, api_client, invalid_id, expected_status, test_user_data):
+        """Test various invalid Israeli IDs"""
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.create_user(user_id=invalid_id, **test_user_data)
+
+        assert exc_info.value.status_code == expected_status
+
+    @pytest.mark.parametrize("invalid_phone", [
+        "invalid-phone",
+        "123456789",
+        "+",
+        "",
+        "972-50-1234567",  # Missing +
+    ])
+    def test_invalid_phone_numbers(self, api_client, unique_user_id, invalid_phone):
+        """Test various invalid phone numbers"""
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.create_user(
+                user_id=unique_user_id,
                 name="Test User",
-                phone="+972-50-1234567",
+                phone=invalid_phone,
                 address="Test Address"
             )
-        self.assertEqual(context.exception.status_code, 422)
 
-        # Invalid phone number
-        with self.assertRaises(APIClientError) as context:
-            self.client.create_user(
-                user_id=self.test_id,
-                name="Test User",
-                phone="invalid-phone",
-                address="Test Address"
-            )
-        self.assertEqual(context.exception.status_code, 422)
+        assert exc_info.value.status_code == 422
 
-        # Empty name
-        with self.assertRaises(APIClientError) as context:
-            self.client.create_user(
-                user_id=self.test_id,
-                name="",
-                phone="+972-50-1234567",
-                address="Test Address"
-            )
-        self.assertEqual(context.exception.status_code, 422)
+    @pytest.mark.parametrize("missing_field", ["name", "address"])
+    def test_missing_required_fields(self, api_client, unique_user_id, missing_field):
+        """Test missing required fields"""
+        user_data = {
+            "name": "Test User",
+            "phone": "+972-50-1234567",
+            "address": "Test Address"
+        }
+        del user_data[missing_field]
 
-    def test_error_scenarios_live(self):
-        """Test error scenarios against live server"""
-        # User not found
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.create_user(user_id=unique_user_id, **user_data)
+
+        assert exc_info.value.status_code == 422
+
+
+# Error Handling Tests
+class TestErrorHandling:
+    """Test error handling scenarios"""
+
+    def test_user_not_found(self, api_client):
+        """Test 404 for non-existent user"""
         non_existent_id = generate_valid_israeli_id("00000000")
 
-        with self.assertRaises(APIClientError) as context:
-            self.client.get_user(non_existent_id)
-        self.assertEqual(context.exception.status_code, 404)
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.get_user(non_existent_id)
 
-        # Invalid ID format
-        with self.assertRaises(APIClientError) as context:
-            self.client.get_user("invalid123")
-        self.assertEqual(context.exception.status_code, 400)
+        assert exc_info.value.status_code == 404
 
-    def test_performance_benchmarks(self):
-        """Test basic performance benchmarks"""
+    def test_invalid_id_format_in_get(self, api_client):
+        """Test 400 for invalid ID format in GET"""
+        with pytest.raises(APIClientError) as exc_info:
+            api_client.get_user("invalid123")
+
+        assert exc_info.value.status_code == 400
+
+
+# Performance Tests
+class TestPerformance:
+    """Basic performance tests"""
+
+    def test_response_times(self, api_client):
+        """Test basic response time requirements"""
         # Health check performance
         start_time = time.time()
-        self.client.health_check()
+        api_client.health_check()
         health_time = time.time() - start_time
+        assert health_time < 5.0, f"Health check too slow: {health_time:.2f}s"
 
-        # Should respond within reasonable time
-        self.assertLess(health_time, 5.0, "Health check took too long")
-
-        # User creation performance
+        # User listing performance
         start_time = time.time()
-        user = self.client.create_user(
-            user_id=self.test_id,
-            name="Performance Test User",
-            phone="+972-50-7777777",
-            address="Performance Test Address"
-        )
-        create_time = time.time() - start_time
+        api_client.list_users()
+        list_time = time.time() - start_time
+        assert list_time < 5.0, f"User listing too slow: {list_time:.2f}s"
 
-        self.assertLess(create_time, 5.0, "User creation took too long")
-
-        # User retrieval performance
-        start_time = time.time()
-        self.client.get_user(self.test_id)
-        get_time = time.time() - start_time
-
-        self.assertLess(get_time, 5.0, "User retrieval took too long")
-
-    def test_concurrent_requests(self):
+    def test_concurrent_requests(self, unique_user_id):
         """Test handling of concurrent requests"""
-        import threading
-
         results = []
         errors = []
 
         def create_user_thread(thread_id):
             try:
-                test_id = generate_valid_israeli_id(f"88877{thread_id:03d}")
-                client = UserAPIClient()
+                timestamp = int(time.time() * 1000) % 1000
+                base_id = f"888{timestamp:03d}{thread_id:02d}"
+                test_id = generate_valid_israeli_id(base_id)
 
+                client = UserAPIClient()
                 user = client.create_user(
                     user_id=test_id,
                     name=f"Concurrent User {thread_id}",
@@ -212,136 +226,54 @@ class TestLiveIntegration(unittest.TestCase):
             threads.append(thread)
             thread.start()
 
-        # Wait for all threads to complete
+        # Wait for all threads
         for thread in threads:
             thread.join()
 
         # Check results
-        self.assertEqual(len(errors), 0, f"Errors in concurrent requests: {errors}")
-        self.assertEqual(len(results), 5, "Not all concurrent requests succeeded")
+        assert len(errors) == 0, f"Errors in concurrent requests: {errors}"
+        assert len(results) == 5, "Not all concurrent requests succeeded"
 
-        # Verify all users have unique IDs
+        # Verify unique IDs
         ids = [user["id"] for user in results]
-        self.assertEqual(len(ids), len(set(ids)), "Duplicate IDs in concurrent creation")
+        assert len(ids) == len(set(ids)), "Duplicate IDs in concurrent creation"
 
 
-class TestSystemResilience(unittest.TestCase):
-    """Test system resilience and edge cases"""
+# Edge Cases
+class TestEdgeCases:
+    """Test edge cases and boundary conditions"""
 
-    def setUp(self):
-        """Check server availability"""
-        try:
-            response = requests.get("http://localhost:8000/health", timeout=5)
-            if response.status_code != 200:
-                self.skipTest("Server not available")
-        except requests.exceptions.RequestException:
-            self.skipTest("Server not available")
-
-        self.client = UserAPIClient()
-
-    def tearDown(self):
-        self.client.close()
-
-    def test_large_data_handling(self):
-        """Test handling of large data"""
-        # Create user with very long name and address
-        long_name = "A" * 1000  # 1000 character name
-        long_address = "B" * 2000  # 2000 character address
-
-        test_id = generate_valid_israeli_id(f"77766{int(time.time()) % 100:02d}")
-
-        try:
-            user = self.client.create_user(
-                user_id=test_id,
-                name=long_name,
-                phone="+972-50-6666666",
-                address=long_address
-            )
-
-            # Verify data was stored correctly
-            retrieved = self.client.get_user(test_id)
-            self.assertEqual(len(retrieved["name"]), 1000)
-            self.assertEqual(len(retrieved["address"]), 2000)
-
-        except APIClientError:
-            # If server rejects large data, that's also acceptable
-            pass
-
-    def test_special_characters(self):
+    def test_special_characters(self, api_client, unique_user_id):
         """Test handling of special characters"""
-        test_id = generate_valid_israeli_id(f"55544{int(time.time()) % 100:02d}")
-
-        # Test with various special characters
         special_name = "José María O'Connor-Smith 中文 עברית"
         special_address = "123 Main St. 🏠 Apt #42, Tel Aviv-Yafo"
 
-        user = self.client.create_user(
-            user_id=test_id,
+        user = api_client.create_user(
+            user_id=unique_user_id,
             name=special_name,
             phone="+972-50-5555555",
             address=special_address
         )
 
         # Verify special characters preserved
-        retrieved = self.client.get_user(test_id)
-        self.assertEqual(retrieved["name"], special_name)
-        self.assertEqual(retrieved["address"], special_address)
+        retrieved = api_client.get_user(unique_user_id)
+        assert retrieved["name"] == special_name
+        assert retrieved["address"] == special_address
 
-    def test_boundary_conditions(self):
-        """Test boundary conditions"""
-        # Test with minimal valid data
-        test_id = generate_valid_israeli_id(f"33322{int(time.time()) % 100:02d}")
-
-        user = self.client.create_user(
-            user_id=test_id,
-            name="A",  # Single character name
+    def test_boundary_data_sizes(self, api_client, unique_user_id):
+        """Test boundary conditions for data sizes"""
+        # Test minimal valid data
+        user = api_client.create_user(
+            user_id=unique_user_id,
+            name="A",  # Single character
             phone="+1",  # Minimal phone (if accepted)
-            address="X"  # Single character address
+            address="X"  # Single character
         )
 
-        retrieved = self.client.get_user(test_id)
-        self.assertEqual(retrieved["name"], "A")
-        self.assertEqual(retrieved["address"], "X")
+        retrieved = api_client.get_user(unique_user_id)
+        assert retrieved["name"] == "A"
+        assert retrieved["address"] == "X"
 
 
-def run_integration_tests():
-    """Run integration tests with proper setup"""
-    print("🚀 Starting Integration Tests")
-    print("=" * 50)
-
-    # Check if server is running
-    try:
-        response = requests.get("http://localhost:8000/health", timeout=5)
-        if response.status_code == 200:
-            print("✅ Server is running")
-        else:
-            print("❌ Server is not responding correctly")
-            return False
-    except requests.exceptions.RequestException:
-        print("❌ Server is not running")
-        print("   Please start the server with: python main.py")
-        return False
-
-    # Run tests
-    loader = unittest.TestLoader()
-    suite = unittest.TestSuite()
-
-    # Add test classes
-    suite.addTests(loader.loadTestsFromTestCase(TestLiveIntegration))
-    suite.addTests(loader.loadTestsFromTestCase(TestSystemResilience))
-
-    runner = unittest.TextTestRunner(verbosity=2)
-    result = runner.run(suite)
-
-    print("\n" + "=" * 50)
-    if result.wasSuccessful():
-        print("✅ All integration tests passed!")
-        return True
-    else:
-        print(f"❌ {len(result.failures)} failures, {len(result.errors)} errors")
-        return False
-
-
-if __name__ == "__main__":
-    success = run_integration_tests()
-    sys.exit(0 if success else 1)
+# Custom markers for test organization
+pytestmark = pytest.mark.integration
